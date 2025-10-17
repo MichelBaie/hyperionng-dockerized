@@ -1,10 +1,9 @@
 services:
   hyperion:
-    image: ghcr.io/MichelBaie/hyperionng-dockerized:latest
+    image: ghcr.io/michelbaie/hyperionng-dockerized:latest
     container_name: hyperion
     restart: unless-stopped
     network_mode: host
-    # Option B (commenter host + décommenter ports):
     # ports:
     #   - "8090:8090"
     #   - "8092:8092"
@@ -18,11 +17,5 @@ services:
     # Adapter /dev/video0 si nécessaire (ls -l /dev/video*)
     # devices:
     #   - /dev/video0:/dev/video0
-    # Périphériques SPI (ex. Raspberry Pi + WS281x):
-    # Décommente ces lignes si tu pilotes des LEDs via SPI/PWM depuis le conteneur
-    # privileged: true
-    # devices:
-    #   - /dev/spidev0.0:/dev/spidev0.0
-    #   - /dev/mem:/dev/mem
 volumes:
   hyperion_config:
